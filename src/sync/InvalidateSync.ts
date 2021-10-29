@@ -1,14 +1,14 @@
-import { backoff, BackoffFunc } from "../timer/backoff";
+import { createBackoff, BackoffFunc } from "../timer/backoff";
 
 export class InvalidateSync {
     private _invalidated = false;
     private _invalidatedDouble = false;
     private _stopped = false;
     private _command: () => Promise<void>;
-    private _backoff = backoff();
+    private _backoff: BackoffFunc;
 
     constructor(command: () => Promise<void>, opts?: { backoff?: BackoffFunc }) {
-        this._backoff = opts && opts.backoff ? opts.backoff : backoff();
+        this._backoff = opts && opts.backoff ? opts.backoff : createBackoff();
         this._command = command;
     }
 

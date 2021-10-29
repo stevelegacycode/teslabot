@@ -7,7 +7,7 @@ export function exponentialBackoffDelay(currentFailureCount: number, minDelay: n
 
 export type BackoffFunc = <T>(callback: () => Promise<T>) => Promise<T>;
 
-export function backoff(
+export function createBackoff(
     opts?: {
         onError?: (e: any, failuresCount: number) => void,
         minDelay?: number,
