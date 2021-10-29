@@ -13,7 +13,7 @@ export class Queue<T> {
 
         // If queue is empty and there are awaiters
         if (this.awaiters.length > 0) {
-            this.awaiters[0](item);
+            this.awaiters.shift()!(item);
             return;
         }
 
