@@ -6,3 +6,4 @@ export { Queue } from './sync/Queue';
 export { ConcurrencyPool, UnboundedConcurrencyPool, BoundedConcurrencyPool } from './sync/ConcurrencyPool';
 export { createBackoff, BackoffFunc, exponentialBackoffDelay } from './timer/backoff';
 export { delay } from './timer/delay';
+export { asyncTimeout } from './timer/asyncTimeout';
